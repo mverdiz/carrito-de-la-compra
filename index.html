@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap-icons.css" />
+
+    <script src="https://kit.fontawesome.com/55925924bb.js" crossorigin="anonymous"></script>
+    <title>Carrito de compras</title>
+</head>
+
+<body>
+
+    <body class="position-relative" data-bs-spy="scroll" data-bs-target="#menu" data-bs-offset="100">
+        <nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">CERVEZAS ARTESANALES</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home">Catalogo de Productos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Acerca de:
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item"
+                                        href="https://mbmarcobeteta.com/cervezas-artesanales-estilos-platillos/">Tipos
+                                        de Cervezas</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://www.bonviveur.es/despensa/tag/cervezas-artesanales/">Las
+                                        Mejores</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Nosostros</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carrito"><i id="bolsa" class="fa-solid fa-cart-shopping fa-xl"></i></a>
+                    </li>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="navbar-text">Usuario</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>           
+            
+            <template id="template-card">
+                <div class="col-3 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="figure-img img-fluid" src="https://picsum.photos/150? + Math.random()"
+                                alt="cerveza">
+                            <h5>Titulo</h5>
+                            <p>precio</p>
+                            <button class="btn btn-success">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+
+            <div class="container">
+                <h4>Carrito de compras</h4>
+                <table id="carrito" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Acción</th>
+                            <th scope="col">Total €</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items"></tbody>
+                    <tfoot>
+                        <tr id="footer">
+                            <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <h4>Cervezas Disponibles</h4>
+                <div class="row" id="cards">
+
+                </div>
+            </div>
+
+            <template id="template-footer">
+                <th scope="row" colspan="2">Total productos</th>
+                <td>10</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                        vaciar todo
+                    </button>
+                </td>
+                <td class="font-weight-bold">$ <span>5000</span></td>
+            </template>
+
+            <template id="template-carrito">
+                <tr>
+                    <th scope="row">id</th>
+                    <td>Cerveza</td>
+                    <td>1</td>
+                    <td>
+                        <button class="btn btn-info btn-sm">
+                            +
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            -
+                        </button>
+                    </td>
+                    <td>$ <span>500</span></td>
+                </tr>
+            </template>
+
+
+        </main>
+
+
+
+        <div class="container footer">
+            <footer
+                class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top border-5 border-warning">
+                <ul class="nav col-md-4 justify-content-start">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Cookies</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Aspectos legales</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contacto</a></li>
+                </ul>
+
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                    <img src="/imagenes/logo.png" width="30%" height="30%" class="img-fluid" alt="logo">
+                    <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i id="facebook"
+                                class="fa-brands fa-facebook fa-xl"></i></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i id="instagram"
+                                class="fa-brands fa-instagram fa-xl"></i></a></li>
+
+                </ul>
+            </footer>
+        </div>
+
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Activar Popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            });
+
+            // Activar Tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        </script>
+
+        <script src="app.js"></script>
+    </body>
+
+</html>
